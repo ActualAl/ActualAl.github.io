@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Webpack example</title>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.light_blue-pink.min.css" /> 
-     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
-     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body id="content">
-    <!--<div id="content" class="mdl-layout mdl-js-layout mdl-layout--fixed-header"></div>-->
-  <script src="common.js"></script><script src="module.js"></script></body>
-</html>
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
